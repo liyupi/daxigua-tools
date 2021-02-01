@@ -4,8 +4,8 @@
         class="avatar-uploader"
         action="https://jsonplaceholder.typicode.com/posts/"
         :show-file-list="false"
-        :on-success="handleAvatarSuccess"
-        :before-upload="beforeAvatarUpload">
+        :on-change="handleAvatarSuccess"
+    >
       <img v-if="imageUrl" :src="imageUrl" class="avatar">
       <i v-else class="el-icon-plus avatar-uploader-icon"></i>
     </el-upload>
@@ -23,9 +23,13 @@
       }
     },
     methods: {
-      handleAvatarSuccess(res, file) {
+      async handleAvatarSuccess(file) {
+        let res = await this.beforeAvatarUpload(file.raw)
+        if (!res) {
+          return;
+        }
         this.imageUrl = URL.createObjectURL(file.raw);
-        if(this.onChange) {
+        if (this.onChange) {
           this.onChange(file.raw);
         }
       },
@@ -33,7 +37,7 @@
         const isPNG = file.type === 'image/png';
 
         if (!isPNG) {
-          this.$message.error('上传头像图片只能是 PNG 格式!');
+          this.$message.error('上传的图片只能是 PNG 格式!');
           return false;
         }
 
@@ -61,7 +65,7 @@
           () => true,
           () => {
             this.$message.error(`图片尺寸不符,只能是 ${this.width} * ${this.height}`);
-            return Promise.reject();
+            return false;
           }
         );
 

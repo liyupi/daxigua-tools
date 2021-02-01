@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>合成大西瓜改图工具 1.0 - by 鱼皮</h1>
+    <h1>🍉 合成大西瓜改图工具 1.0 - by 鱼皮</h1>
     <p class="text">
       用法：<br />
       <b>千万不要刷新页面！否则要重新上传！</b> <br />
@@ -47,7 +47,6 @@
       // 打包下载
       doDownload() {
         const downloadUtil = new DownloadUtil();
-        console.log(this.files)
         Object.keys(this.files).forEach(key => {
           const {file, filename} = this.files[key];
           if (file && filename) {
