@@ -6,7 +6,7 @@
       <b>千万不要刷新页面！否则要重新上传！</b> <br />
       1. 在对应位置上传你要替换的图片，尺寸必须一致 <br />
       2. 点击打包下载 <br />
-      3. 解压下载的压缩包，替换掉 res/raw-assets 目录 <br />
+      3. 解压下载的压缩包，把包中的字母文件夹全部复制，然后替换掉 res/raw-assets 目录下的子文件夹（千万别把整个 raw-assets 覆盖了！） <br />
       <a href="https://github.com/liyupi/daxigua" target="_blank" class="link">项目仓库</a>
       <a href="https://mp.weixin.qq.com/s/H9VR1MWn-9bKSC_1l_MkJw" target="_blank" class="link">文章教程</a>
       <a href="https://www.bilibili.com/video/BV1Vy4y1n7KW/" target="_blank" class="link">视频教程</a> <br />
